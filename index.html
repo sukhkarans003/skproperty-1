@@ -3413,7 +3413,7 @@
 <body>
     <!-- LOADING -->
     <div class="ld-screen" id="ldScreen">
-        <div class="ld-logo">SK</div>
+        <div class="ld-logo"><img src="/logo.png" alt=""></div>
         <div class="ld-bar">
             <div class="ld-bar-fill"></div>
         </div>
@@ -3535,7 +3535,7 @@
                 <a href="#" onclick="goHome()"
                     style="padding:8px 14px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;color:#334155"
                     data-t="home">Home</a>
-                <a href="#" onclick="goHome();setTimeout(function(){scrollToEl('props-section')},200)"
+                <a href="#" onclick="showPV('allprops-page')"
                     style="padding:8px 14px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;color:#334155"
                     data-t="properties">Properties</a>
                 <div class="mega-wrap">
@@ -3546,9 +3546,8 @@
                         <div class="mega-col">
                             <h4><span class="iconify" data-icon="lucide:home" data-width="14"
                                     style="color:#0D47A1"></span> Buy & Rent</h4>
-                            <a href="#"
-                                onclick="goHome();setTimeout(function(){filterProps('Residential');scrollToEl('props-section')},150)"
-                                class="mega-link">Residential Plots <span>125-500 Sq.Yd</span></a>
+                            <a href="#" onclick="openPropertyCategory('Residential')" class="mega-link">Residential
+                                Plots <span>125-500 Sq.Yd</span></a>
                             <a href="#" onclick="showPV('rental-page')" class="mega-link">Rentals & PG <span>Ready
                                     homes</span></a>
                             <a href="#" onclick="showPV('luxury-page')" class="mega-link">Luxury Villas
@@ -3559,15 +3558,12 @@
                         <div class="mega-col">
                             <h4><span class="iconify" data-icon="lucide:building-2" data-width="14"
                                     style="color:#0D47A1"></span> Commercial & Land</h4>
-                            <a href="#"
-                                onclick="goHome();setTimeout(function(){filterProps('Commercial');scrollToEl('props-section')},150)"
-                                class="mega-link">Commercial SCO/Booth <span>High street</span></a>
-                            <a href="#"
-                                onclick="goHome();setTimeout(function(){filterProps('Agriculture');scrollToEl('props-section')},150)"
-                                class="mega-link">Agricultural Land <span>Verified</span></a>
-                            <a href="#"
-                                onclick="goHome();setTimeout(function(){filterProps('JV');scrollToEl('props-section')},150)"
-                                class="mega-link">JV & Development Land <span>Investor</span></a>
+                            <a href="#" onclick="openPropertyCategory('Commercial')" class="mega-link">Commercial
+                                SCO/Booth <span>High street</span></a>
+                            <a href="#" onclick="openPropertyCategory('Agriculture')" class="mega-link">Agricultural
+                                Land <span>Verified</span></a>
+                            <a href="#" onclick="openPropertyCategory('JV')" class="mega-link">JV & Development Land
+                                <span>Investor</span></a>
                             <a href="#" onclick="showPV('allprops-page')" class="mega-link">New Projects
                                 <span>Builder</span></a>
                         </div>
@@ -3592,6 +3588,12 @@
                     style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;display:flex;align-items:center;gap:5px;color:#BE185D"><span
                         class="iconify" data-icon="lucide:key" data-width="13"></span> <span
                         data-t="rent">Rent</span></a>
+                <a href="#" onclick="showPV('reels-page')"
+                    style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:600;display:flex;align-items:center;gap:5px;color:#DB2777"><span
+                        class="iconify" data-icon="lucide:clapperboard" data-width="13"></span> Reels</a>
+                <a href="#" onclick="showPV('features-page')"
+                    style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:600;display:flex;align-items:center;gap:5px;color:#0D47A1"><span
+                        class="iconify" data-icon="lucide:layout-dashboard" data-width="13"></span> Features</a>
                 <a href="#" onclick="showPV('nri-page')"
                     style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;display:flex;align-items:center;gap:5px;color:#334155"><span
                         class="iconify" data-icon="lucide:globe" data-width="13"></span> NRI</a>
@@ -3599,9 +3601,6 @@
                     style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:600;display:flex;align-items:center;gap:5px;color:#B8860B"><span
                         class="iconify" data-icon="lucide:crown" data-width="13"></span> <span
                         data-t="luxury">Luxury</span></a>
-                <a href="#" onclick="showPV('customer-portal')"
-                    style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;color:#334155"
-                    data-t="portal">Portal</a>
                 <a href="#" onclick="showPV('ai-page')"
                     style="padding:8px 12px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;display:flex;align-items:center;gap:5px;color:#0D47A1"><span
                         class="iconify" data-icon="lucide:sparkles" data-width="13"></span> AI</a>
@@ -3634,9 +3633,14 @@
                     <div style="position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#DC2626,#EF4444);color:#fff;font-size:7px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(220,38,38,.3)"
                         id="notifB">0</div>
                 </div>
-                <a href="#" onclick="showPV('wishlist-page')"
+                <!-- <a href="#" onclick="showPV('wishlist-page')"
                     style="margin-left:4px;width:36px;height:36px;border-radius:10px;border:1.5px solid rgba(226,232,240,.5);background:rgba(255,255,255,.8);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#475569;text-decoration:none;transition:all .25s"
-                    title="Wishlist"><span class="iconify" data-icon="lucide:heart" data-width="14"></span></a>
+                    title="Wishlist"><span class="iconify" data-icon="lucide:heart" data-width="14"></span></a> -->
+                <a href="#" onclick="showPV('customer-portal')"
+                    style="margin-left:8px;padding:10px 20px;font-size:12px;font-weight:600;color:#FFF;text-decoration:none;border-radius:11px;background:linear-gradient(135deg,#047857,#10B981);display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(4,120,87,.18);transition:all .35s"
+                    onmouseover="this.style.background='linear-gradient(135deg,#059669,#34D399)';this.style.transform='translateY(-1px)'"
+                    onmouseout="this.style.background='linear-gradient(135deg,#047857,#10B981)';this.style.transform='none'"><span
+                        class="iconify" data-icon="logos:google-icon" data-width="13"></span> Login</a>
                 <a href="#" onclick="showPV('emp-login-page')"
                     style="margin-left:8px;padding:10px 20px;font-size:12px;font-weight:600;color:#FFF;text-decoration:none;border-radius:11px;background:linear-gradient(135deg,#0D47A1,#1565C0);display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(13,71,161,.18);transition:all .35s"
                     onmouseover="this.style.background='linear-gradient(135deg,#1565C0,#42A5F5)';this.style.transform='translateY(-1px)'"
@@ -3678,10 +3682,10 @@
         <button onclick="goHome()"><span class="iconify" data-icon="lucide:home" data-width="17"></span>Home</button>
         <button onclick="showPV('search-page')"><span class="iconify" data-icon="lucide:search"
                 data-width="17"></span>Search</button>
-        <button onclick="goHome();setTimeout(function(){scrollToEl('pro-reels-suite')},150)"><span class="iconify"
-                data-icon="lucide:clapperboard" data-width="17"></span>Reels</button>
-        <button onclick="showPV('wishlist-page')"><span class="iconify" data-icon="lucide:heart"
-                data-width="17"></span>Wishlist</button>
+        <button onclick="showPV('reels-page')"><span class="iconify" data-icon="lucide:clapperboard"
+                data-width="17"></span>Reels</button>
+        <!-- <button onclick="showPV('wishlist-page')"><span class="iconify" data-icon="lucide:heart"
+                data-width="17"></span>Wishlist</button> -->
         <button onclick="openSocialProfile()"><span class="iconify" data-icon="lucide:user-round"
                 data-width="17"></span>Profile</button>
     </div>
@@ -3809,7 +3813,7 @@
 
         <!-- VIP BANNER -->
         <section
-            style="padding:48px 20px;background:linear-gradient(135deg,#020617,#0F172A,#1E293B);position:relative;overflow:hidden">
+            style="display:none;padding:48px 20px;background:linear-gradient(135deg,#020617,#0F172A,#1E293B);position:relative;overflow:hidden">
             <div
                 style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(212,175,55,.06),transparent 70%);pointer-events:none">
             </div>
@@ -3902,7 +3906,7 @@
         </section>
 
         <!-- SMART CITY -->
-        <section id="social-suite" class="sec-glow" style="padding:88px 20px;background:#F8FAFC">
+        <section id="social-suite" class="sec-glow" style="display:none;padding:88px 20px;background:#F8FAFC">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="text-align:center;margin-bottom:44px" class="reveal">
                     <div class="pro-b" style="margin-bottom:16px"><span class="iconify"
@@ -3960,7 +3964,8 @@
             </div>
         </section>
 
-        <section id="pro-reels-suite" class="sec-glow" style="padding:88px 20px;background:#020617;color:#FFF">
+        <section id="pro-reels-suite" class="sec-glow"
+            style="display:none;padding:88px 20px;background:#020617;color:#FFF">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center" id="reelFullGrid">
                     <div class="reel-card reveal" style="height:560px;max-width:360px;margin:0 auto;width:100%"><video
@@ -4023,7 +4028,7 @@
             </div>
         </section>
 
-        <section id="company-profiles-suite" class="sec-glow" style="padding:88px 20px;background:#FFF">
+        <section id="company-profiles-suite" class="sec-glow" style="display:none;padding:88px 20px;background:#FFF">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="text-align:center;margin-bottom:44px" class="reveal">
                     <div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:building-2"
@@ -4086,7 +4091,8 @@
             </div>
         </section>
 
-        <section id="messaging-analytics-suite" class="sec-glow" style="padding:88px 20px;background:#F8FAFC">
+        <section id="messaging-analytics-suite" class="sec-glow"
+            style="display:none;padding:88px 20px;background:#F8FAFC">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="text-align:center;margin-bottom:44px" class="reveal">
                     <div class="pro-b" style="margin-bottom:16px"><span class="iconify"
@@ -4147,7 +4153,7 @@
             </div>
         </section>
 
-        <section id="enterprise-feature-center" class="sec-glow" style="padding:88px 20px;background:#FFF">
+        <section id="enterprise-feature-center" class="sec-glow" style="display:none;padding:88px 20px;background:#FFF">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="text-align:center;margin-bottom:44px" class="reveal">
                     <div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:shield-check"
@@ -4669,6 +4675,25 @@
                             class="tg-blue">Marketplace</span></h1>
                     <div class="sec-div"></div>
                 </div>
+                <div class="g-card" style="padding:22px;border-radius:16px;margin-bottom:28px">
+                    <h3
+                        style="font-size:17px;font-weight:900;color:#0F172A;margin-bottom:14px;display:flex;align-items:center;gap:8px">
+                        <span class="iconify" data-icon="lucide:layout-grid" data-width="18"
+                            style="color:#0D47A1"></span> Property Categories
+                    </h3>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">
+                        <button onclick="openPropertyCategory('Residential')" class="btn-g btn-sm">Residential</button>
+                        <button onclick="openPropertyCategory('Commercial')" class="btn-g btn-sm">Commercial</button>
+                        <button onclick="openPropertyCategory('Agriculture')" class="btn-g btn-sm">Agricultural
+                            Land</button>
+                        <button onclick="openPropertyCategory('Farm House')" class="btn-g btn-sm">Farm House</button>
+                        <button onclick="openPropertyCategory('Luxury Villas')" class="btn-g btn-sm">Luxury
+                            Villas</button>
+                        <button onclick="openPropertyCategory('Apartments')" class="btn-g btn-sm">Apartments</button>
+                        <button onclick="openPropertyCategory('Shops')" class="btn-g btn-sm">Shops</button>
+                        <button onclick="openPropertyCategory('Warehouses')" class="btn-g btn-sm">Warehouses</button>
+                    </div>
+                </div>
                 <div style="display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;justify-content:center"><button
                         onclick="filterMarket('all')" class="tab-btn active" id="mkAll">All</button><button
                         onclick="filterMarket('loan')" class="tab-btn" id="mkLoan">🏠 Home Loans</button><button
@@ -4678,6 +4703,191 @@
                         id="mkConstruction">🏗️ Construction</button></div>
                 <div id="marketGrid"
                     style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px"></div>
+                <div style="text-align:center;margin-top:36px"><button onclick="goHome()" class="btn-g"><span
+                            class="iconify" data-icon="lucide:arrow-left" data-width="15"></span> Back</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="market-detail-page" class="pv">
+        <div style="background:#FFF;min-height:100vh;padding-top:90px">
+            <div style="max-width:980px;margin:0 auto;padding:36px 20px" id="marketDetailWrap"></div>
+        </div>
+    </div>
+
+    <div id="category-page" class="pv">
+        <div style="background:#FFF;min-height:100vh;padding-top:90px">
+            <div style="max-width:1280px;margin:0 auto;padding:36px 20px">
+                <div style="text-align:center;margin-bottom:36px">
+                    <h1 id="catTitle" style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:#0F172A">Property
+                        Category</h1>
+                    <div class="sec-div"></div>
+                    <p id="catDesc" style="color:#64748B;font-size:14px;margin-top:10px"></p>
+                </div>
+                <div id="categoryGrid"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px"></div>
+                <div style="text-align:center;margin-top:36px"><button onclick="showPV('marketplace-page')"
+                        class="btn-g"><span class="iconify" data-icon="lucide:arrow-left" data-width="15"></span>
+                        Marketplace</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reels-page" class="pv">
+        <div style="background:#020617;min-height:100vh;padding-top:90px;color:#FFF">
+            <div style="max-width:1180px;margin:0 auto;padding:36px 20px">
+                <div style="display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:34px;align-items:center"
+                    id="reelsPageGrid">
+                    <div class="reel-card"
+                        style="height:680px;max-height:calc(100vh - 150px);width:100%;border-radius:22px">
+                        <video id="mainReelVideo" autoplay muted loop playsinline controls
+                            poster="https://picsum.photos/seed/sk-main-reel/720/1280.jpg">
+                            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="reel-actions" style="bottom:170px">
+                            <button onclick="reelAct('Liked reel')"><span class="iconify" data-icon="lucide:heart"
+                                    data-width="18"></span></button>
+                            <button onclick="openCommentM(2,'Dealer Reel')"><span class="iconify"
+                                    data-icon="lucide:message-circle" data-width="18"></span></button>
+                            <button onclick="shareReelLink()"><span class="iconify" data-icon="lucide:send"
+                                    data-width="18"></span></button>
+                            <button onclick="saveReel('Dealer Reel')"><span class="iconify" data-icon="lucide:bookmark"
+                                    data-width="18"></span></button>
+                        </div>
+                        <div class="reel-overlay">
+                            <span class="bdg bdg-live" style="width:max-content">Trending Reel</span>
+                            <h2 style="font-size:25px;font-weight:900;margin-top:10px">Mohali Villa Walkthrough</h2>
+                            <p style="font-size:13px;opacity:.85">Swipe-style dealer reels with like, comment, share,
+                                save, follow and property actions.</p>
+                            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+                                <button onclick="openPropertyCategory('Residential')" class="btn-p btn-sm"><span
+                                        class="iconify" data-icon="lucide:home" data-width="12"></span> View
+                                    Property</button>
+                                <button onclick="openVisit(3,'Residential Plot in Mohali')" class="btn-g btn-sm"
+                                    style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#FFF">Book
+                                    Visit</button>
+                                <button onclick="openMsgM('SK DREAM Dealer')" class="btn-g btn-sm"
+                                    style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#FFF">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pro-b"
+                            style="margin-bottom:16px;background:rgba(255,255,255,.08);color:#F9A8D4;border-color:rgba(255,255,255,.14)">
+                            <span class="iconify" data-icon="lucide:clapperboard" data-width="13"></span> Instagram
+                            Style Feed
+                        </div>
+                        <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.05">Dealer Reels <span
+                                style="color:#F9A8D4">for Properties</span></h1>
+                        <p style="color:rgba(255,255,255,.68);font-size:15px;margin-top:16px;max-width:560px">Dealers
+                            can upload vertical videos, connect every reel to a listing, and customers can follow, like,
+                            comment, share links and save reels.</p>
+                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px">
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#F9A8D4">28.4K</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Views</div>
+                            </div>
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#A7F3D0">3.1K</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Likes</div>
+                            </div>
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#FDE68A">642</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Shares</div>
+                            </div>
+                        </div>
+                        <div id="reelsList"
+                            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:28px">
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:36px"><button onclick="goHome()" class="btn-g"
+                        style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#FFF"><span
+                            class="iconify" data-icon="lucide:arrow-left" data-width="15"></span> Back</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="features-page" class="pv">
+        <div style="background:#F8FAFC;min-height:100vh;padding-top:90px">
+            <div style="max-width:1280px;margin:0 auto;padding:36px 20px">
+                <div style="text-align:center;margin-bottom:44px">
+                    <div class="pro-b" style="margin-bottom:16px"><span class="iconify"
+                            data-icon="lucide:layout-dashboard" data-width="13"></span> Features</div>
+                    <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#0F172A">Professional Real Estate
+                        <span class="tg-blue">Platform</span>
+                    </h1>
+                    <div class="sec-div"></div>
+                </div>
+                <div class="feature-hub-grid">
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:heart-handshake"
+                            data-width="28" style="color:#BE185D"></span>
+                        <h3>Social Engagement</h3>
+                        <p>Property likes, comments, replies, share links, saved collections, follow dealer and reviews.
+                        </p>
+                        <div class="social-actions"><button onclick="openSocialProfile()">Open Profile</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:message-circle"
+                            data-width="28" style="color:#047857"></span>
+                        <h3>WhatsApp Style Messaging</h3>
+                        <p>Customer to dealer chat with images, voice notes, property sharing and read receipts.</p>
+                        <div class="social-actions"><button onclick="openMsgM('SK DREAM Dealer')">Open Chat</button>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:sparkles" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>AI & Analytics</h3>
+                        <p>AI recommendations, description generator, price prediction, dealer analytics and investment
+                            insights.</p>
+                        <div class="social-actions"><button onclick="showPV('ai-page')">AI Tools</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:building-2" data-width="28"
+                            style="color:#B8860B"></span>
+                        <h3>Pro Real Estate OS</h3>
+                        <p>Dealer dashboard, leads, payments, subscriptions, staff tools, verification and security
+                            modules.</p>
+                        <div class="social-actions"><button onclick="showPV('emp-login-page')">Staff Login</button>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:rotate-3d" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>Virtual Tours</h3>
+                        <p>360 degree virtual walk, full screen tour, mobile smooth mode, drone and construction video
+                            gallery.</p>
+                        <div class="social-actions"><button onclick="openPropDet(3)">View Demo</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:calculator" data-width="28"
+                            style="color:#047857"></span>
+                        <h3>Investment Tools</h3>
+                        <p>Mortgage calculator, EMI calculator, ROI calculator, price history graph and nearby place
+                            distance view.</p>
+                        <div class="social-actions"><button onclick="showPV('emi-page')">Calculators</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:badge-check" data-width="28"
+                            style="color:#047857"></span>
+                        <h3>Trust Features</h3>
+                        <p>Verified dealer badge, legal verified property badge, Aadhaar/KYC verification and fraud
+                            alerts.</p>
+                        <div class="feature-list"><span>Verified Dealer</span><span>Legal
+                                Verified</span><span>KYC</span></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:indian-rupee" data-width="28"
+                            style="color:#B8860B"></span>
+                        <h3>Revenue Features</h3>
+                        <p>Featured Property Rs 499, Featured Reel Rs 199, Premium Dealer Rs 1999/month, Homepage Banner
+                            Ads Rs 2999/month.</p>
+                        <div class="social-actions"><button onclick="showPV('vip-page')">Plans</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:smartphone" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>Mobile App Style</h3>
+                        <p>Push notifications, price drop alerts, new reel alerts, new message alerts and PWA install
+                            app button.</p>
+                        <div class="social-actions"><button
+                                onclick="toast('Install app prompt ready for PWA','info')">Install App</button></div>
+                    </div>
+                </div>
                 <div style="text-align:center;margin-top:36px"><button onclick="goHome()" class="btn-g"><span
                             class="iconify" data-icon="lucide:arrow-left" data-width="15"></span> Back</button></div>
             </div>
@@ -5027,6 +5237,16 @@
                     <h1 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:#0F172A">Rental <span
                             class="tg-blue">Ecosystem</span></h1>
                     <div class="sec-div"></div>
+                </div>
+                <div class="g-card"
+                    style="padding:22px;border-radius:16px;margin-bottom:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+                    <div>
+                        <h3 style="font-size:18px;font-weight:900;color:#0F172A">Rental Reels</h3>
+                        <p style="font-size:13px;color:#64748B;margin-top:4px">Dealers can share short rental videos
+                            like Instagram reels.</p>
+                    </div>
+                    <button onclick="showPV('reels-page')" class="btn-p"><span class="iconify"
+                            data-icon="lucide:clapperboard" data-width="16"></span> Open Reels</button>
                 </div>
                 <div id="rentalGrid"
                     style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px"></div>
@@ -7013,7 +7233,9 @@
             { id: 7, name: 'PixelPerfect Studios', cat: 'interior', desc: 'Photography & virtual tours', icon: 'lucide:camera', price: '₹15,000/shoot', img: 'photography-studio' },
             { id: 8, name: 'GreenBuild Infra', cat: 'construction', desc: 'Eco-friendly construction', icon: 'lucide:leaf', price: '₹2,200/sq.ft', img: 'eco-construction-green' },
             { id: 9, name: 'ICICI Home Loans', cat: 'loan', desc: 'Quick approval & disbursal', icon: 'lucide:banknote', price: 'From 8.65% ROI', img: 'icici-bank-branch' },
-            { id: 10, name: 'SkyView Drones', cat: 'interior', desc: 'Aerial photography & mapping', icon: 'lucide:navigation', price: '₹10,000/session', img: 'drone-aerial-shot' }
+            { id: 10, name: 'SkyView Drones', cat: 'interior', desc: 'Aerial photography & mapping', icon: 'lucide:navigation', price: 'Rs 10,000/session', img: 'drone-aerial-shot' },
+            { id: 11, name: 'Verified KYC Desk', cat: 'legal', desc: 'Aadhaar, KYC and legal verified badges', icon: 'lucide:badge-check', price: 'From Rs 999', img: 'verified-kyc-desk' },
+            { id: 12, name: 'Banner Ads Studio', cat: 'construction', desc: 'Homepage banner ads and featured reel campaigns', icon: 'lucide:megaphone', price: 'Rs 2,999/month', img: 'property-banner-ads' }
         ];
         var curMarketFilter = 'all';
         function filterMarket(cat) {
